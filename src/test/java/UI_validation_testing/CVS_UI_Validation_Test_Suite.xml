@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CVS_Homepage_UI_Validation_Test" parallel="tests" thread-count="4">
+
+    <test name="CVS_Chrome_Homepage_UI_Validation_Test">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="UI_validation_testing.CVS_Homepage_UI_Validation"></class>
+        </classes>
+    </test>
+
+    <test name="CVS_Edge_Homepage_UI_Validation_Test">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="UI_validation_testing.CVS_Homepage_UI_Validation"></class>
+        </classes>
+    </test>
+
+    <test name="CVS_Firefox_Homepage_UI_Validation_Test">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="UI_validation_testing.CVS_Homepage_UI_Validation"></class>
+        </classes>
+    </test>
+
+    <test name="CVS_Safari_Homepage_UI_Validation_Test">
+        <parameter name="browser" value="safari"></parameter>
+        <classes>
+            <class name="UI_validation_testing.CVS_Homepage_UI_Validation"></class>
+        </classes>
+    </test>
+
+</suite>
