@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class HowWeSupportTheCommunitySlider extends BasePage {
 
-    private static final Logger logger = LoggerFactory.getLogger(Announcement.class);
+    private static final Logger logger = LoggerFactory.getLogger(HowWeSupportTheCommunitySlider.class);
     private WebElement sliderContainer;
     private WebDriver driver;
     private WebDriverWait wait;
@@ -373,5 +373,3 @@ public class HowWeSupportTheCommunitySlider extends BasePage {
 
 }
 
-//label arrow left: //*[@class='arrow-label left']
-//label arrow right: //*[@class='arrow-label right']

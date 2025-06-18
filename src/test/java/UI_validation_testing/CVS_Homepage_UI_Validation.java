@@ -1,4 +1,5 @@
 package UI_validation_testing;
+
 import CVS_Website.Pages.BasePage;
 import CVS_Website.Pages.HomePage.components.*;
 import org.openqa.selenium.TimeoutException;
@@ -15,79 +16,139 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     private Highlights highlights;
     private HowWeSupportTheCommunitySlider howWeSupportTheCommunitySlider;
 
-@Test(description = "Check the Announcement container for the correct text")
+    @Test(description = "Check the Announcement container for the correct text")
 
-    public void checkAnnouncementContainerText(){
+    public void checkAnnouncementContainerText() {
 
-    Assert.assertEquals(announcement.getHeader(),"");
-    Assert.assertEquals(announcement.getP1(),"");
-    Assert.assertEquals(announcement.getP2(),"");
-    Assert.assertEquals(announcement.getPhoneNumber(),"");
-    logger.pass("Successfully checked Announcement container for visibility of elements and correct text");
+        try {
 
-}
+            Assert.assertEquals(announcement.getHeader(), "");
+            Assert.assertEquals(announcement.getP1(), "");
+            Assert.assertEquals(announcement.getP2(), "");
+            Assert.assertEquals(announcement.getPhoneNumber(), "");
+            logger.pass("Successfully checked Announcement container for visibility of elements and correct text");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
+
+    }
 
     @Test(description = "Click on the link within the Announcement container and check if we landed on the correct page")
 
-    public void clickAnnouncementContainerLink(){
+    public void clickAnnouncementContainerLink() {
 
-        announcement.clickTransferOnline();
-        logger.pass("Successfully clicked on Announcement container link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            announcement.clickTransferOnline();
+            logger.pass("Successfully clicked on Announcement container link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Check the hero section container for the correct text")
 
-    public void checkHeroSectionContainerText(){
+    public void checkHeroSectionContainerText() {
 
-        Assert.assertEquals(heroSection.getHeroSectionHeader(),"");
-        Assert.assertEquals(heroSection.getHeroSectionLink1(),"");
-        Assert.assertEquals(heroSection.getHeroSectionLink2(),"");
-        Assert.assertEquals(heroSection.getHeroSectionLink3(),"");
-        logger.pass("Successfully checked hero section container for visibility of elements and correct text");
+        try {
+
+            Assert.assertEquals(heroSection.getHeroSectionHeader(), "");
+            Assert.assertEquals(heroSection.getHeroSectionLink1(), "");
+            Assert.assertEquals(heroSection.getHeroSectionLink2(), "");
+            Assert.assertEquals(heroSection.getHeroSectionLink3(), "");
+            logger.pass("Successfully checked hero section container for visibility of elements and correct text");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Click on the hero section link 1 and check if we landed on the correct page")
 
-    public void clickHeroSectionContainerLink1(){
+    public void clickHeroSectionContainerLink1() {
 
-        heroSection.clickManageAndRefillPrescriptionLink();
-        logger.pass("Successfully clicked on hero section container link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            heroSection.clickManageAndRefillPrescriptionLink();
+            logger.pass("Successfully clicked on hero section container link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Click on the hero section link 2 and check if we landed on the correct page")
 
-    public void clickHeroSectionContainerLink2(){
+    public void clickHeroSectionContainerLink2() {
 
-        heroSection.clickScheduleVaccinationsLink();
-        logger.pass("Successfully clicked on hero section container link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            heroSection.clickScheduleVaccinationsLink();
+            logger.pass("Successfully clicked on hero section container link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Click on the hero section link 3 and check if we landed on the correct page")
 
-    public void clickHeroSectionContainerLink3(){
+    public void clickHeroSectionContainerLink3() {
 
-        heroSection.clickScheduleMinuteClinicAppointmentLink();
-        logger.pass("Successfully clicked on hero section container link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            heroSection.clickScheduleMinuteClinicAppointmentLink();
+            logger.pass("Successfully clicked on hero section container link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Acquire css values for the hero section image")
-    public void checkHeroSectionIMG(){
+    public void checkHeroSectionIMG() {
 
-    heroSection.checkImage();
-    logger.pass("Successfully returned CSS values for hero section IMG");
+        try {
+
+            heroSection.checkImage();
+            logger.pass("Successfully returned CSS values for hero section IMG");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -95,9 +156,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkwellnessHeader() {
 
         try {
+
             String actualText = Wellness.getWellnessHeader();
             logger.pass("Successfully located wellness header");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated wellness header text");
 
         } catch (TimeoutException e) {
@@ -112,9 +175,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkwellnessShopAllProductsText() {
 
         try {
+
             String actualText = Wellness.getShopAllProductsText();
             logger.pass("Successfully located wellness shop all products link");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated wellness header text");
 
         } catch (TimeoutException e) {
@@ -126,13 +191,21 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     }
 
     @Test(description = "Click on the wellness shop all products link and check if we landed on the correct page")
+    public void clickWellnessShopAllProductsLink() {
 
-    public void clickWellnessShopAllProductsLink(){
+        try {
 
-        Wellness.clickShopAllProductsLink();
-        logger.pass("Successfully clicked on wellness shop all products link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+            Wellness.clickShopAllProductsLink();
+            logger.pass("Successfully clicked on wellness shop all products link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -142,10 +215,13 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
         try {
             Wellness.isHealthAndMedicineIconVisible();
             logger.pass("Successfully located health and medicine icon");
+
             Wellness.isVitaminsIconVisible();
             logger.pass("Successfully located vitamins icon");
+
             Wellness.isPersonalCareIconVisible();
             logger.pass("Successfully located personal care icon");
+
             Wellness.isShopWeeklyAdsIconVisible();
             logger.pass("Successfully located shop weekly ads icon");
 
@@ -159,53 +235,97 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the wellness health and medicine link and check if we landed on the correct page")
 
-    public void clickWellnessHealthAndMedicineLink(){
+    public void clickWellnessHealthAndMedicineLink() {
 
-        Wellness.clickHealthAndMedicineLink();
-        logger.pass("Successfully clicked on wellness health and medicine link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            Wellness.clickHealthAndMedicineLink();
+            logger.pass("Successfully clicked on wellness health and medicine link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Click on the wellness vitamins link and check if we landed on the correct page")
 
-    public void clickWellnessVitaminsLink(){
+    public void clickWellnessVitaminsLink() {
 
-        Wellness.clickVitaminsLink();
-        logger.pass("Successfully clicked on wellness vitamins link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            Wellness.clickVitaminsLink();
+            logger.pass("Successfully clicked on wellness vitamins link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Click on the wellness personal care link and check if we landed on the correct page")
 
-    public void clickWellnessPersonalCareLink(){
+    public void clickWellnessPersonalCareLink() {
 
-        Wellness.clickPersonalCareLink();
-        logger.pass("Successfully clicked on wellness health and medicine link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            Wellness.clickPersonalCareLink();
+            logger.pass("Successfully clicked on wellness health and medicine link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Click on the wellness shop weekly deals link and check if we landed on the correct page")
 
-    public void clickWellnessShopWeeklyDealsLink(){
+    public void clickWellnessShopWeeklyDealsLink() {
 
-        Wellness.clickShopWeeklyDealsLink();
-        logger.pass("Successfully clicked on wellness shop weekly deals link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            Wellness.clickShopWeeklyDealsLink();
+            logger.pass("Successfully clicked on wellness shop weekly deals link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Acquire css values for the Highlights section image")
-    public void checkHighlightsIMG(){
+    public void checkHighlightsIMG() {
 
-        highlights.checkHighlightsImage();
-        logger.pass("Successfully returned CSS values for Highlights section IMG");
+        try {
+
+            highlights.checkHighlightsImage();
+            logger.pass("Successfully returned CSS values for Highlights section IMG");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -213,9 +333,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkHighlightsHeader() {
 
         try {
+
             String actualText = highlights.getHighlightsHeader();
             logger.pass("Successfully located Highlights header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights header text");
 
         } catch (TimeoutException e) {
@@ -230,9 +352,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkHighlightsSubHeaderText() {
 
         try {
+
             String actualText = highlights.getHighlightsSubHeader();
             logger.pass("Successfully located Highlights sub header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights sub header text");
 
         } catch (TimeoutException e) {
@@ -247,9 +371,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkHighlightsParagraphText() {
 
         try {
+
             String actualText = highlights.getHighlightsParagraph();
             logger.pass("Successfully located Highlights sub header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights sub header text");
 
         } catch (TimeoutException e) {
@@ -264,9 +390,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkHighlightsLink1Text() {
 
         try {
+
             String actualText = highlights.getHighlightsLink1();
             logger.pass("Successfully located Highlights sub header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights sub header text");
 
         } catch (TimeoutException e) {
@@ -279,12 +407,21 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the Highlights link 1 and check if we landed on the correct page")
 
-    public void clickHighlightsLink1(){
+    public void clickHighlightsLink1() {
 
-        highlights.clickHighlightsLink1();
-        logger.pass("Successfully clicked on CTA shop weekly deals link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            highlights.clickHighlightsLink1();
+            logger.pass("Successfully clicked on CTA shop weekly deals link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -292,9 +429,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkHighlightsLink2Text() {
 
         try {
+
             String actualText = highlights.getHighlightsLink2();
             logger.pass("Successfully located Highlights sub header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights sub header text");
 
         } catch (TimeoutException e) {
@@ -307,20 +446,36 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the Highlights link 2 and check if we landed on the correct page")
 
-    public void clickHighlightsLink2(){
+    public void clickHighlightsLink2() {
+        try {
 
-        highlights.clickHighlightsLink2();
-        logger.pass("Successfully clicked on Highlights link 2");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+            highlights.clickHighlightsLink2();
+            logger.pass("Successfully clicked on Highlights link 2");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Acquire css values for the Highlights mini card image")
-    public void checkHighlightsMiniCardIMG(){
+    public void checkHighlightsMiniCardIMG() {
 
-        highlights.checkHighlightsMiniCardImage();
-        logger.pass("Successfully returned CSS values for Highlights section IMG");
+        try {
+
+            highlights.checkHighlightsMiniCardImage();
+            logger.pass("Successfully returned CSS values for Highlights section IMG");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -330,7 +485,8 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
         try {
             String actualText = highlights.getHighlightsMiniCardHeader();
             logger.pass("Successfully located Highlights header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights header text");
 
         } catch (TimeoutException e) {
@@ -347,7 +503,8 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
         try {
             String actualText = highlights.getHighlightsMiniCardLinkText();
             logger.pass("Successfully located Highlights header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Highlights header text");
 
         } catch (TimeoutException e) {
@@ -360,20 +517,37 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the Highlights mini card link and check if we landed on the correct page")
 
-    public void clickHighlightsMiniCardLink(){
+    public void clickHighlightsMiniCardLink() {
 
-        highlights.clickHighlightsMiniCardLink();
-        logger.pass("Successfully clicked on Highlights mini card link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            highlights.clickHighlightsMiniCardLink();
+            logger.pass("Successfully clicked on Highlights mini card link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Acquire css values for the Commitment mini card 1 image")
-    public void checkCommitmentMiniCard1IMG(){
+    public void checkCommitmentMiniCard1IMG() {
 
-        commitment.checkCommitmentMiniCard1Image();
-        logger.pass("Successfully returned CSS values for Commitment mini card 1 IMG");
+        try {
+
+            commitment.checkCommitmentMiniCard1Image();
+            logger.pass("Successfully returned CSS values for Commitment mini card 1 IMG");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -383,7 +557,8 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
         try {
             String actualText = commitment.getCommitmentMiniCard1Header();
             logger.pass("Successfully located Commitment mini card 1 text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Commitment mini card 1 text");
 
         } catch (TimeoutException e) {
@@ -400,7 +575,8 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
         try {
             String actualText = commitment.getCommitmentMiniCard1LinkText();
             logger.pass("Successfully located Commitment mini card 1 header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Commitment mini card 1 text");
 
         } catch (TimeoutException e) {
@@ -413,20 +589,37 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the Commitment mini card 1 link and check if we landed on the correct page")
 
-    public void clickCommitmentMiniCard1Link(){
+    public void clickCommitmentMiniCard1Link() {
 
-        commitment.clickCommitmentMiniCard1Link();
-        logger.pass("Successfully clicked on Commitment mini card 1 link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            commitment.clickCommitmentMiniCard1Link();
+            logger.pass("Successfully clicked on Commitment mini card 1 link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Acquire css values for the Commitment mini card 2 image")
-    public void checkCommitmentMiniCard2IMG(){
+    public void checkCommitmentMiniCard2IMG() {
 
-        commitment.checkCommitmentMiniCard2Image();
-        logger.pass("Successfully returned CSS values for Commitment mini card 2 IMG");
+        try {
+
+            commitment.checkCommitmentMiniCard2Image();
+            logger.pass("Successfully returned CSS values for Commitment mini card 2 IMG");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -434,9 +627,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommitmentMiniCard2Header() {
 
         try {
+
             String actualText = commitment.getCommitmentMiniCard2Header();
             logger.pass("Successfully located Commitment mini card 2 header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Commitment mini card 2 header text");
 
         } catch (TimeoutException e) {
@@ -451,9 +646,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommitmentMiniCard2LinkText() {
 
         try {
+
             String actualText = commitment.getCommitmentMiniCard2LinkText();
             logger.pass("Successfully located Commitment mini card 2 header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Commitment mini card 2 header text");
 
         } catch (TimeoutException e) {
@@ -466,20 +663,37 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the Commitment mini card 2 link and check if we landed on the correct page")
 
-    public void clickCommitmentMiniCard2Link(){
+    public void clickCommitmentMiniCard2Link() {
 
-        commitment.clickCommitmentMiniCard2Link();
-        logger.pass("Successfully clicked on Commitment mini card 2 link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            commitment.clickCommitmentMiniCard2Link();
+            logger.pass("Successfully clicked on Commitment mini card 2 link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
     @Test(description = "Acquire css values for the Commitment mini card 3 image")
-    public void checkCommitmentMiniCard3IMG(){
+    public void checkCommitmentMiniCard3IMG() {
 
-        commitment.checkCommitmentMiniCard3Image();
-        logger.pass("Successfully returned CSS values for Commitment mini card 3 IMG");
+        try {
+
+            commitment.checkCommitmentMiniCard3Image();
+            logger.pass("Successfully returned CSS values for Commitment mini card 3 IMG");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -487,9 +701,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommitmentMiniCard3Header() {
 
         try {
+
             String actualText = commitment.getCommitmentMiniCard3Header();
             logger.pass("Successfully located Commitment mini card 3 header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Commitment mini card 3 header text");
 
         } catch (TimeoutException e) {
@@ -504,9 +720,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommitmentMiniCard3LinkText() {
 
         try {
+
             String actualText = commitment.getCommitmentMiniCard3LinkText();
             logger.pass("Successfully located Commitment mini card 3 header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated Commitment mini card 3 header text");
 
         } catch (TimeoutException e) {
@@ -519,12 +737,21 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "Click on the Commitment mini card 3 link and check if we landed on the correct page")
 
-    public void clickCommitmentMiniCard3Link(){
+    public void clickCommitmentMiniCard3Link() {
 
-        commitment.clickCommitmentMiniCard1Link();
-        logger.pass("Successfully clicked on Commitment mini card 3 link");
-        Assert.assertEquals(driver.get().getCurrentUrl(), "");
-        logger.pass("Successfully arrived at correct page");
+        try {
+
+            commitment.clickCommitmentMiniCard1Link();
+            logger.pass("Successfully clicked on Commitment mini card 3 link");
+
+            Assert.assertEquals(driver.get().getCurrentUrl(), "");
+            logger.pass("Successfully arrived at correct page");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
 
     }
 
@@ -532,9 +759,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommunitySliderHeader() {
 
         try {
+
             String actualText = howWeSupportTheCommunitySlider.getCommunitySliderSectionHeader();
             logger.pass("Successfully located community slider section header text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated community slider section header text");
 
         } catch (TimeoutException e) {
@@ -549,9 +778,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommunitySliderSlide1Text() {
 
         try {
+
             String actualText = howWeSupportTheCommunitySlider.getCommunitySliderSlide1Text();
             logger.pass("Successfully located community slider section slide 1 text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated community slider section slide 1 text");
 
         } catch (TimeoutException e) {
@@ -564,29 +795,45 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
 
     @Test(description = "")
 
-    public void clickCommunitySliderArrows(){
+    public void clickCommunitySliderArrows() {
 
-        howWeSupportTheCommunitySlider.clickCommunitySliderRightArrowSlide1To2();
-        logger.pass("Successfully clicked on community slider right arrow slide 1 To 2");
-        howWeSupportTheCommunitySlider.clickCommunitySliderRightArrowSlide2To3();
-        logger.pass("Successfully clicked on community slider right arrow slide 2 To 3");
-        howWeSupportTheCommunitySlider.clickCommunitySliderRightArrowSlide3To4();
-        logger.pass("Successfully clicked on community slider right arrow slide 3 To 4");
-        howWeSupportTheCommunitySlider.clickCommunitySliderLeftArrowSlide4To3();
-        logger.pass("Successfully clicked on community slider right arrow slide 4 To 3");
-        howWeSupportTheCommunitySlider.clickCommunitySliderLeftArrowSlide3To2();
-        logger.pass("Successfully clicked on community slider right arrow slide 3 To 2");
-        howWeSupportTheCommunitySlider.clickCommunitySliderLeftArrowSlide2To1();
-        logger.pass("Successfully clicked on community slider right arrow slide 2 To 1");
+        try {
+            
+            howWeSupportTheCommunitySlider.clickCommunitySliderRightArrowSlide1To2();
+            logger.pass("Successfully clicked on community slider right arrow slide 1 To 2");
+
+            howWeSupportTheCommunitySlider.clickCommunitySliderRightArrowSlide2To3();
+            logger.pass("Successfully clicked on community slider right arrow slide 2 To 3");
+
+            howWeSupportTheCommunitySlider.clickCommunitySliderRightArrowSlide3To4();
+            logger.pass("Successfully clicked on community slider right arrow slide 3 To 4");
+
+            howWeSupportTheCommunitySlider.clickCommunitySliderLeftArrowSlide4To3();
+            logger.pass("Successfully clicked on community slider right arrow slide 4 To 3");
+
+            howWeSupportTheCommunitySlider.clickCommunitySliderLeftArrowSlide3To2();
+            logger.pass("Successfully clicked on community slider right arrow slide 3 To 2");
+
+            howWeSupportTheCommunitySlider.clickCommunitySliderLeftArrowSlide2To1();
+            logger.pass("Successfully clicked on community slider right arrow slide 2 To 1");
+
+        } catch (TimeoutException e) {
+
+            throw e;
+
+        }
+
     }
 
     @Test(description = "Check the community slider slide 2 for the correct text")
     public void checkCommunitySliderSlide2Text() {
 
         try {
+
             String actualText = howWeSupportTheCommunitySlider.getCommunitySliderSlide2Text();
             logger.pass("Successfully located community slider section slide 1 text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated community slider section slide 1 text");
 
         } catch (TimeoutException e) {
@@ -601,9 +848,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommunitySliderSlide3Text() {
 
         try {
+
             String actualText = howWeSupportTheCommunitySlider.getCommunitySliderSlide3Text();
             logger.pass("Successfully located community slider section slide 1 text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated community slider section slide 1 text");
 
         } catch (TimeoutException e) {
@@ -618,9 +867,11 @@ public class CVS_Homepage_UI_Validation extends UI_Validation_Test_Parent {
     public void checkCommunitySliderSlide4Text() {
 
         try {
+
             String actualText = howWeSupportTheCommunitySlider.getCommunitySliderSlide4Text();
             logger.pass("Successfully located community slider section slide 1 text");
-            Assert.assertEquals(actualText,"");
+
+            Assert.assertEquals(actualText, "");
             logger.pass("Successfully validated community slider section slide 1 text");
 
         } catch (TimeoutException e) {

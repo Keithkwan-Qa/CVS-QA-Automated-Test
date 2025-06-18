@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class Commitment extends BasePage {
 
-    private static final Logger logger = LoggerFactory.getLogger(Announcement.class);
+    private static final Logger logger = LoggerFactory.getLogger(Commitment.class);
     private WebElement commitmentContainer;
     private WebDriver driver;
     private WebDriverWait wait;
@@ -34,7 +34,7 @@ public class Commitment extends BasePage {
     }
 
     /**
-     * Wait for Commitment mini card 1 IMG element to be visible and extract css values from element
+     * Wait for Commitment mini card 1 IMG element to be visible and extract attribute values from element
      */
     public void checkCommitmentMiniCard1Image() {
 
@@ -45,12 +45,8 @@ public class Commitment extends BasePage {
             logger.debug("Commitment mini card 1 IMG element is now visible");
 
             logger.info("Attempting to extract css values from Commitment mini card 1 IMG element");
-            String commitmentMiniCard1IMG_Width = getCSSAttributes(commitmentMiniCard1IMG,"width");
-            String commitmentMiniCard1IMG_Height = getCSSAttributes(commitmentMiniCard1IMG,"Height");
-            String highlightsMiniCard1IMG_SRC = getCSSAttributes(commitmentMiniCard1IMG,"src");
-            System.out.println("Height: " + commitmentMiniCard1IMG_Height);
-            System.out.println("Width: " + commitmentMiniCard1IMG_Width);
-            System.out.println("SRC: " + highlightsMiniCard1IMG_SRC);
+            imageCheckCSS(commitmentContainer,"img[alt='A child receives a sports physical at MinuteClinic.']");
+            logger.debug("Successfully extracted css values from Commitment mini card 1 IMG element");
 
 
         } catch (TimeoutException e) {
@@ -151,16 +147,12 @@ public class Commitment extends BasePage {
         try {
 
             logger.info("Waiting for Commitment mini card 2 IMG element to be visible");
-            WebElement commitmentMiniCard2IMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(commitmentContainer, By.cssSelector("img[alt='A person picks up their prescriptions at the drive-through line at CVS.")));
+            WebElement commitmentMiniCard2IMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(commitmentContainer, By.cssSelector("img[alt='A person picks up their prescriptions at the drive-through line at CVS.']")));
             logger.debug("Commitment mini card 2 IMG element is now visible");
 
             logger.info("Attempting to extract css values from Commitment mini card 2 IMG element");
-            String commitmentMiniCard2IMG_Width = getCSSAttributes(commitmentMiniCard2IMG,"width");
-            String commitmentMiniCard2IMG_Height = getCSSAttributes(commitmentMiniCard2IMG,"Height");
-            String highlightsMiniCard2IMG_SRC = getCSSAttributes(commitmentMiniCard2IMG, "src");
-            System.out.println("Height: " + commitmentMiniCard2IMG_Height);
-            System.out.println("Width: " + commitmentMiniCard2IMG_Width);
-            System.out.println("SRC: " + highlightsMiniCard2IMG_SRC);
+            imageCheckCSS(commitmentContainer,"img[alt='A person picks up their prescriptions at the drive-through line at CVS.']");
+            logger.debug("Successfully extracted css values from Commitment mini card 2 IMG element");
 
 
         } catch (TimeoutException e) {
@@ -260,16 +252,12 @@ public class Commitment extends BasePage {
         try {
 
             logger.info("Waiting for Commitment mini card 3 IMG element to be visible");
-            WebElement commitmentMiniCard3IMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(commitmentContainer, By.cssSelector("img[alt='A patient looks up flu shot information online.")));
+            WebElement commitmentMiniCard3IMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(commitmentContainer, By.cssSelector("img[alt='A patient looks up flu shot information online.']")));
             logger.debug("Commitment mini card 3 IMG element is now visible");
 
             logger.info("Attempting to extract css values from Commitment mini card 3 IMG element");
-            String commitmentMiniCard3IMG_Width = getCSSAttributes(commitmentMiniCard3IMG,"width");
-            String commitmentMiniCard3IMG_Height = getCSSAttributes(commitmentMiniCard3IMG,"Height");
-            String highlightsMiniCard3IMG_SRC = getCSSAttributes(commitmentMiniCard3IMG,"src");
-            System.out.println("Height: " + commitmentMiniCard3IMG_Height);
-            System.out.println("Width: " + commitmentMiniCard3IMG_Width);
-            System.out.println("SRC: " + highlightsMiniCard3IMG_SRC);
+            imageCheckCSS(commitmentContainer,"img[alt='A patient looks up flu shot information online.");
+            logger.debug("Successfully extracted css values from Commitment mini card 3 IMG element");
 
 
         } catch (TimeoutException e) {
@@ -363,4 +351,3 @@ public class Commitment extends BasePage {
 
 }
 
-//Commitment img xpath //*[@src='https://www.cvs.com/content/dam/enterprise/cvsretail/homepage/hp00001/2025/wk22/summer-celebration.png?im=Resize=(393.6,367.76)']

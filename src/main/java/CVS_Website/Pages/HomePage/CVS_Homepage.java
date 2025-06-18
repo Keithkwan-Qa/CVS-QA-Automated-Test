@@ -6,6 +6,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +14,7 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 
 public class CVS_Homepage extends BasePage {
-    private static final Logger logger = LoggerFactory.getLogger(Announcement.class);
-    private WebElement sliderContainer;
+    private static final Logger logger = LoggerFactory.getLogger(CVS_Homepage.class);
     private WebDriver driver;
     private WebDriverWait wait;
     private static final String pageURL = "https://www.cvs.com";
@@ -23,14 +23,13 @@ public class CVS_Homepage extends BasePage {
     /**
      * constructor to initialize page
      *
-     * @param sliderContainer WebElement container for hero section
-     * @param driver          WebDriver driver instance
+     * @param driver WebDriver driver instance
      */
-    public CVS_Homepage(WebDriver driver, WebElement sliderContainer) {
+    public CVS_Homepage(WebDriver driver) {
 
         super(driver);
-        this.sliderContainer = sliderContainer;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
 
     }
 
@@ -182,10 +181,3 @@ public class CVS_Homepage extends BasePage {
     }
 
 }
-//the headers are dropdown menus
-//the quick links each kind of  do serve their own behaviour-probably better to have each independently identified rather than using a list
-//for icons i can validate ui by checking if it's visible, checking accessibility through it's alt text, and get the color; size; and font
-
-//add this to the page when applicable :logger.info("Attempting to scroll to element");
-//            jse.executeScript("arguments[0],scrollIntoView(true);",heroSectionHeader);
-//            logger.debug("Successfully scrolled to element");

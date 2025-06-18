@@ -14,21 +14,21 @@ import java.time.Duration;
 
 public class Wellness extends BasePage {
 
-    private static final Logger logger = LoggerFactory.getLogger(Announcement.class);
-    private WebElement cTAContainer;
+    private static final Logger logger = LoggerFactory.getLogger(Wellness.class);
+    private WebElement wellnessContainer;
     private WebDriver driver;
     private WebDriverWait wait;
 
     /**
      * constructor to initialize page
      *
-     * @param cTAContainer WebElement container for hero section
+     * @param wellnessContainer WebElement container for hero section
      * @param driver       WebDriver driver instance
      */
-    public Wellness(WebDriver driver, WebElement cTAContainer) {
+    public Wellness(WebDriver driver, WebElement wellnessContainer) {
 
         super(driver);
-        this.cTAContainer = cTAContainer;
+        this.wellnessContainer = wellnessContainer;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     }
@@ -43,11 +43,11 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for wellness header element to become visible ");
-            WebElement cTAHeader = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[text()='Essentials']")));
+            WebElement wellnessHeader = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[text()='Essentials']")));
             logger.debug("Wellness header element is not visible");
 
             logger.info("Attempting to get text from wellness header element");
-            String acquiredText = getTextFromElement(cTAHeader);
+            String acquiredText = getTextFromElement(wellnessHeader);
             logger.debug("Successfully got text from wellness header element");
 
             return acquiredText;
@@ -70,7 +70,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for health and medicine icon element to be visible");
-            WebElement healthAndMedicineIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@class='mcimg img5']")));
+            WebElement healthAndMedicineIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@class='mcimg img5']")));
             logger.debug("Health and medicine icon element is now visible");
 
             return healthAndMedicineIcon.isDisplayed();
@@ -91,7 +91,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for health and medicine link element to be visible");
-            WebElement healthAndMedicineLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@id='sec4-link8']")));
+            WebElement healthAndMedicineLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@id='sec4-link8']")));
             logger.debug("Health and medicine link element is now visible");
 
             logger.info("Attempting to click on health and medicine link element");
@@ -116,7 +116,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for vitamins icon element to be visible");
-            WebElement vitaminsIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@class='mcimg img2']")));
+            WebElement vitaminsIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@class='mcimg img2']")));
             logger.debug("Vitamins icon element is now visible");
             return vitaminsIcon.isDisplayed();
 
@@ -136,7 +136,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for vitamins link element to be visible");
-            WebElement vitaminsLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@id='sec4-link5']")));
+            WebElement vitaminsLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@id='sec4-link5']")));
             logger.debug("Vitamins link element is now visible");
 
             logger.info("Attempting to click on vitamins link element");
@@ -161,7 +161,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for personal care icon element to be visible");
-            WebElement personalCareIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@class='mcimg img1']")));
+            WebElement personalCareIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@class='mcimg img1']")));
             logger.debug("Personal care icon element is now visible");
             return personalCareIcon.isDisplayed();
 
@@ -181,7 +181,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for personal care link element to be visible");
-            WebElement personalCareLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@id='sec4-link4']")));
+            WebElement personalCareLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@id='sec4-link4']")));
             logger.debug("Personal care link element is now visible");
 
             logger.info("Attempting to click on personal care link element");
@@ -206,7 +206,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for shop weekly ads icon element to be visible");
-            WebElement shopWeeklyAdsIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@class='mcimg img4']")));
+            WebElement shopWeeklyAdsIcon = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@class='mcimg img4']")));
             logger.debug("Shop weekly ads icon element is now visible");
             return shopWeeklyAdsIcon.isDisplayed();
 
@@ -226,7 +226,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for shop weekly ads link element to be visible");
-            WebElement shopWeeklyAdsLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@id='sec4-link6']")));
+            WebElement shopWeeklyAdsLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@id='sec4-link6']")));
             logger.debug("Shop weekly ads link element is now visible");
 
             logger.info("Attempting to click on shop weekly ads link element");
@@ -251,7 +251,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for shop all products text element to become visible ");
-            WebElement shopAllProductsText = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[text()='Shop all products']")));
+            WebElement shopAllProductsText = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[text()='Shop all products']")));
             logger.debug("Shop all products text element is now visible");
 
             logger.info("Attempting to get text from shop all products text element");
@@ -276,7 +276,7 @@ public class Wellness extends BasePage {
         try {
 
             logger.info("Waiting for shop all products link element to be visible");
-            WebElement shopAllProductsLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(cTAContainer, By.xpath("//*[@id='sec1-link4']")));
+            WebElement shopAllProductsLink = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(wellnessContainer, By.xpath("//*[@id='sec1-link4']")));
             logger.debug("Shop all products link element is now visible");
 
             logger.info("Attempting to click on shop all products link element");

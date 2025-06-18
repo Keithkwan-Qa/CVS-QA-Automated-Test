@@ -163,4 +163,3 @@ public class Announcement extends BasePage {
         }
     }
 }
-//xpath for annoucnement contianer //*[@class='bnts-637 aem-ssr-web-content_container__JJecC']

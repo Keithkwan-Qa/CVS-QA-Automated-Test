@@ -109,13 +109,41 @@ public class BasePage {
     }
 
     /**
+     * Get html attribute values from an element after it's become visible
+     *
+     * @param element  WebElement to get Css value from
+     * @param attribute String to choose which Css value
+     * @return Css attribute of element
+     */
+    protected String getHTMLAttributes(WebElement element, String attribute) {
+
+        try {
+            logger.info("Waiting for element to be visible");
+            WebElement elementToGetAttributeValue = wait.until(ExpectedConditions.visibilityOf(element));
+            logger.debug("Element is now visible");
+
+            logger.info("Attempting to acquire desired css value from element: {}", element.getTagName());
+            String elementAttributeValue = elementToGetAttributeValue.getAttribute(attribute);
+            logger.debug("Successfully got css value");
+
+            return elementAttributeValue;
+
+        } catch (TimeoutException e) {
+
+            logger.error("Element was not visible and could not acquire css value within timeout: {}", element.getTagName());
+            throw e;
+
+        }
+    }
+
+    /**
      * Get Css values from an element after it's become visible
      *
      * @param element  WebElement to get Css value from
      * @param cssValue String to choose which Css value
      * @return Css attribute of element
      */
-    protected String getCSSAttributes(WebElement element, String cssValue) {
+    protected String getCSSValues(WebElement element, String cssValue) {
 
         try {
             logger.info("Waiting for element to be visible");
@@ -134,6 +162,7 @@ public class BasePage {
             throw e;
 
         }
+
     }
 
     /**
@@ -157,6 +186,7 @@ public class BasePage {
             return false;
 
         }
+
     }
 
     /**
@@ -181,6 +211,67 @@ public class BasePage {
             logger.error("Element was not visible and could not scroll into view within timeout: {}", element.getTagName());
 
         }
+
+    }
+
+    /**
+     * Wait for IMG element to be visible and extract css values from element using css selector
+     */
+    public void imageCheckCSS(WebElement container, String cSS_Selector) {
+
+        try {
+
+            logger.info("Waiting for hero section IMG element to be visible");
+            WebElement iMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(container, By.cssSelector(cSS_Selector)));
+            logger.debug("Hero section IMG element is now visible");
+
+            logger.info("Attempting to extract css values from IMG element");
+            String iMG_Width = getCSSValues(iMG,"width");
+            String iMG_Height = getCSSValues(iMG,"Height");
+            String iMG_SRC = getCSSValues(iMG, "src");
+            System.out.println("Height: " + iMG_Height);
+            System.out.println("Width: " + iMG_Width);
+            System.out.println("SRC: " + iMG_SRC);
+            logger.debug("Successfully extracted css values from IMG element");
+
+
+        } catch (TimeoutException e) {
+
+            logger.error("IMG element was not visible within timeout");
+            throw e;
+
+        }
+
+    }
+
+    /**
+     * Wait for IMG element to be visible and extract css values from element using css selector
+     */
+    public void imageCheckXpath(WebElement container, String xpath) {
+
+        try {
+
+            logger.info("Waiting for hero section IMG element to be visible");
+            WebElement iMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(container, By.xpath(xpath)));
+            logger.debug("Hero section IMG element is now visible");
+
+            logger.info("Attempting to extract css values from IMG element");
+            String iMG_Width = getCSSValues(iMG,"width");
+            String iMG_Height = getCSSValues(iMG,"Height");
+            String iMG_SRC = getCSSValues(iMG, "src");
+            System.out.println("Height: " + iMG_Height);
+            System.out.println("Width: " + iMG_Width);
+            System.out.println("SRC: " + iMG_SRC);
+            logger.debug("Successfully extracted css values from IMG element");
+
+
+        } catch (TimeoutException e) {
+
+            logger.error("IMG element was not visible within timeout");
+            throw e;
+
+        }
+
     }
 
 }

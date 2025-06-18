@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 
 public class HeroSection extends BasePage {
-    private static final Logger logger = LoggerFactory.getLogger(Announcement.class);
+    private static final Logger logger = LoggerFactory.getLogger(HeroSection.class);
     private WebElement heroSectionContainer;
     private WebDriver driver;
     private WebDriverWait wait;
@@ -218,13 +218,8 @@ public class HeroSection extends BasePage {
             logger.debug("Hero section IMG element is now visible");
 
             logger.info("Attempting to extract css values from hero section IMG element");
-            String heroSectionIMG_Width = getCSSAttributes(heroSectionIMG,"width");
-            String heroSectionIMG_Height = getCSSAttributes(heroSectionIMG,"Height");
-            String heroSectionIMG_SRC = getCSSAttributes(heroSectionIMG, "src");
-            System.out.println("Height: " + heroSectionIMG_Height);
-            System.out.println("Width: " + heroSectionIMG_Width);
-            System.out.println("SRC: " + heroSectionIMG_SRC);
-
+            imageCheckCSS(heroSectionContainer,"img[alt='Friends get food from a grill during a backyard barbecue.']");
+            logger.debug("Successfully extracted css values from hero section IMG element");
 
         } catch (TimeoutException e) {
 

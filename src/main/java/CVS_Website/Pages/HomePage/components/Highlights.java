@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class Highlights extends BasePage {
 
-    private static final Logger logger = LoggerFactory.getLogger(Announcement.class);
+    private static final Logger logger = LoggerFactory.getLogger(Highlights.class);
     private WebElement highlightsContainer;
     private WebDriver driver;
     private WebDriverWait wait;
@@ -42,13 +42,13 @@ public class Highlights extends BasePage {
 
         try {
 
-            logger.info("Waiting for element to become visible ");
+            logger.info("Waiting for highlights header element to become visible ");
             WebElement highlightsHeader = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(highlightsContainer, By.xpath("//*[text()='Essentials']")));
             logger.debug("Element is now visible");
 
-            logger.info("Attempting to get text from element");
+            logger.info("Attempting to get text from highlights header element");
             String acquiredText = getTextFromElement(highlightsHeader);
-            logger.debug("Successfully got text from element");
+            logger.debug("Successfully got text from highlights header element");
 
             return acquiredText;
 
@@ -68,17 +68,13 @@ public class Highlights extends BasePage {
 
         try {
 
-            logger.info("Waiting for element to be visible");
+            logger.info("Waiting for highlights IMG element to be visible");
             WebElement highlightsIMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(highlightsContainer, By.xpath("//img[@alt='BOGO 50% off. Cerave mineral sunscreen stick, Neutrogena Ultra Sheer spray-on sunscreen and Aveeno Protect plus Hydrate sunscreen lotion.']")));
             logger.debug("Highlights IMG element is now visible");
 
-            logger.info("Attempting to extract css values from Highlights IMG element");
-            String heroSectionIMG_Width = getCSSAttributes(highlightsIMG,"width");
-            String heroSectionIMG_Height = getCSSAttributes(highlightsIMG,"Height");
-            String heroSectionIMG_SRC = getCSSAttributes(highlightsIMG,"src");
-            System.out.println("Height: " + heroSectionIMG_Height);
-            System.out.println("Width: " + heroSectionIMG_Width);
-            System.out.println("SRC: " + heroSectionIMG_SRC);
+            logger.info("Attempting to extract css values from highlights IMG element");
+            imageCheckCSS(highlightsContainer,"//img[@alt='BOGO 50% off. Cerave mineral sunscreen stick, Neutrogena Ultra Sheer spray-on sunscreen and Aveeno Protect plus Hydrate sunscreen lotion.']");
+            logger.debug("Successfully extracted css values from highlights IMG element");
 
 
         } catch (TimeoutException e) {
@@ -261,13 +257,9 @@ public class Highlights extends BasePage {
             WebElement highlightsMiniCardIMG = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(highlightsContainer, By.cssSelector("img[src='https://www.cvs.com/content/dam/enterprise/cvsretail/homepage/hp00001/2025/wk22/summer-celebration.png?im=Resize=(393.6,367.76)']")));
             logger.debug("Highlights mini card IMG element is now visible");
 
-            logger.info("Attempting to extract css values from Highlights mini card IMG element");
-            String highlightsMiniCardIMG_Width = getCSSAttributes(highlightsMiniCardIMG,"width");
-            String highlightsMiniCardIMG_Height = getCSSAttributes(highlightsMiniCardIMG,"Height");
-            String highlightsMiniCardIMG_SRC = getCSSAttributes(highlightsMiniCardIMG,"src");
-            System.out.println("Height: " + highlightsMiniCardIMG_Height);
-            System.out.println("Width: " + highlightsMiniCardIMG_Width);
-            System.out.println("SRC: " + highlightsMiniCardIMG_SRC);
+            logger.info("Attempting to extract css values from highlights mini card IMG element");
+            imageCheckCSS(highlightsContainer,"img[src='https://www.cvs.com/content/dam/enterprise/cvsretail/homepage/hp00001/2025/wk22/summer-celebration.png?im=Resize=(393.6,367.76)']");
+            logger.debug("Successfully extracted css values from highlights mini card IMG element");
 
 
         } catch (TimeoutException e) {
