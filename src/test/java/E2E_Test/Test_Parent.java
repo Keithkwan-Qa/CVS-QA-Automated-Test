@@ -1,9 +1,10 @@
-package UI_validation_testing;
+package E2E_Test;
+
 import CVS_Website.Pages.BasePage;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,10 +15,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
+
 import java.lang.reflect.Method;
 import java.time.Duration;
 
-public class UI_Validation_Test_Parent {
+public class Test_Parent {
 
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     protected static ExtentReports reports;
@@ -45,6 +47,7 @@ public class UI_Validation_Test_Parent {
 
     }
 
+
     //We need to set the parameter for browser in order to allow multi-browser testing
     @Parameters("browser")
     @BeforeMethod
@@ -59,7 +62,6 @@ public class UI_Validation_Test_Parent {
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         webDriver.manage().deleteAllCookies();
-        webDriver.get("https://www.cvs.com/");
         basePage = new BasePage(getDriver());
 
     }

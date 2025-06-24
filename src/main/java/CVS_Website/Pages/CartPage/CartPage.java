@@ -1,6 +1,8 @@
 package CVS_Website.Pages.CartPage;
 
 import CVS_Website.Pages.BasePage;
+import CVS_Website.Pages.CartPage.Components.CartItems;
+import CVS_Website.Pages.CartPage.Components.CartOrderSummary;
 import CVS_Website.Pages.ProductPage.Components.AddToCartFinalization;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -21,7 +23,8 @@ public class CartPage extends BasePage {
 
     private static final Logger logger = LoggerFactory.getLogger(CartPage.class);
     private WebDriver driver;
-    private WebElement cartContainer;
+    private CartItems cartItems;
+    private CartOrderSummary cartOrderSummary;
     private WebDriverWait wait;
 
     /**
@@ -29,10 +32,11 @@ public class CartPage extends BasePage {
      *
      * @param driver WebDriver driver instance
      */
-    public CartPage(WebDriver driver, WebElement cartContainer) {
+    public CartPage(WebDriver driver) {
 
         super(driver);
-        this.cartContainer = cartContainer;
+        this.cartItems = new CartItems(driver, cartItemsContainer);
+        this.cartOrderSummary = new CartOrderSummary(driver, orderSummaryContainer);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
 
@@ -45,6 +49,118 @@ public class CartPage extends BasePage {
     @FindBy(css = "div[class='Review-module__container']")
     private WebElement orderSummaryContainer;
 
+    public void checkCartItems() {
 
+        cartItems.checkCartItems();
+
+    }
+
+    public void clickChangeStore() {
+
+        cartItems.clickChangeStore();
+
+    }
+
+    public void sendLocationText(String location) {
+
+        cartItems.sendLocationText(location);
+
+    }
+
+    public void clickSearchStore() {
+
+        cartItems.clickSearchStore();
+
+    }
+
+    public void checkTextLocatedStores() {
+
+        cartItems.checkTextLocatedStores();
+
+    }
+
+    public void clickSelectStore(int index) {
+
+        cartItems.clickSelectStore(index);
+
+    }
+
+    public void clickChangeZIP() {
+
+        cartItems.clickChangeZIP();
+
+    }
+
+    public void sendZIP(String zip) {
+
+        cartItems.sendZIP(zip);
+
+    }
+
+    public void clickUpdateZIP() {
+
+        cartItems.clickUpdateZIP();
+
+    }
+
+    public void cartQuantityDropMenu(int index) {
+
+        cartItems.cartQuantityDropMenu(index);
+
+    }
+
+    public void clickChangeFulfillmentMethod() {
+
+        cartItems.clickChangeFulfillmentMethod();
+
+    }
+
+    public void selectFulfillmentMethod(int index) {
+
+        cartItems.selectFulfillmentMethod(index);
+
+    }
+
+    public void clickSave() {
+
+        cartItems.clickSave();
+
+    }
+
+    public String getCartItemCount() {
+
+        return cartOrderSummary.getCartItemCount();
+
+    }
+
+    public String getOrderSubTotal() {
+
+        return cartOrderSummary.getOrderSubTotal();
+
+    }
+
+    public String getSavingsTotal() {
+
+        return cartOrderSummary.getSavingsTotal();
+
+    }
+
+    public String getShippingCost() {
+
+        return cartOrderSummary.getShippingCost();
+
+    }
+
+    public String getOrderEstimatedTotal() {
+
+        return cartOrderSummary.getOrderEstimatedTotal();
+
+    }
+
+    public void clickCheckOut() {
+
+        cartOrderSummary.clickCheckOut();
+
+    }
 
 }

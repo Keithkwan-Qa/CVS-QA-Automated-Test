@@ -5,28 +5,28 @@
     <test name="CVS_Chrome_Add_Product_E2E_Test">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="UI_validation_testing.CVS_Add_Product_Test"></class>
+            <class name="E2E_Test.CVS_Add_Product_Test"></class>
         </classes>
     </test>
 
     <test name="CVS_Edge_Add_Product_E2E_Test">
         <parameter name="browser" value="edge"></parameter>
         <classes>
-            <class name="UI_validation_testing.CVS_Add_Product_Test"></class>
+            <class name="E2E_Test.CVS_Add_Product_Test"></class>
         </classes>
     </test>
 
     <test name="CVS_Firefox_Add_Product_E2E_Test">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
-            <class name="UI_validation_testing.CVS_Add_Product_Test"></class>
+            <class name="E2E_Test.CVS_Add_Product_Test"></class>
         </classes>
     </test>
 
     <test name="CVS_Safari_Add_Product_E2E_Test">
         <parameter name="browser" value="safari"></parameter>
         <classes>
-            <class name="UI_validation_testing.CVS_Add_Product_Test"></class>
+            <class name="E2E_Test.CVS_Add_Product_Test"></class>
         </classes>
     </test>
 
